@@ -7,6 +7,6 @@ const UsuarioSchema = new Schema({
   ocupation: { type: String },
 });
 
-const UsuarioModel = model("Usuario", UsuarioSchema);
+const UsuarioModel = model("Usuarios", UsuarioSchema);
 
 module.exports = UsuarioModel;
