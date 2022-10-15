@@ -10,7 +10,7 @@ const {
   
   router.post("/Usuario", agregarUsuario);
   router.get("/Usuario", obtenerUsuarios);
-  router.put("/Usuario/:name", modificarUsuario);
-  router.delete("/Usuario/:name", eliminarUsuario)
+  router.put("/Usuario/:_id", modificarUsuario);
+  router.delete("/Usuario/:_id", eliminarUsuario)
   
   module.exports = router;

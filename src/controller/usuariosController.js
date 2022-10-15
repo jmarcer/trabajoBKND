@@ -33,8 +33,7 @@ const modificarUsuario = async (req, res, next) => {
 
 const eliminarUsuario = async (req, res, next) => {
     try {
-        const { name} = req.params
-        await UsuarioModel.deleteOne({name: name })
+        await eliminarUsuarioService(req);
         res.json({message: "Usuario eliminado con exito"})
     } catch (error) {
         next(error);
