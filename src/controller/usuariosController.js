@@ -2,14 +2,20 @@ const agregarUsuarioService = require("../services/agregarUsuarioService");
 const modifcarUsuarioService = require("../services/modificarUsuarioService");
 const obtenerUsuariosService = require("../services/obtenerUsuarioService");
 const eliminarUsuarioService= require("../services/eliminarUsuarioService" )
+const { validationResult}= require("express-validator");
 
-const agregarUsuario = async (req, res) => {
+const agregarUsuario = async (req, res, next) => {
+const errors = validationResult(req);
+   if (!errors.isEmpty()) {
+     return res.status(400).json({ errors: errors.array() });
+   }
     try {
         await agregarUsuarioService(req);
         res.json({message: "Usuario agregada con exito."})
     } catch (error) {
         const msg = error.message
         res.json({message: "Ocurrió un error. " + msg})
+        next(error.message);
     }
 }
 

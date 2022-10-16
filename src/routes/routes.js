@@ -7,8 +7,9 @@ const {
   const express = require("express");
   const UsuarioModel = require("../models/usuarios.model");
   const router = express.Router();
+  const {body}= require("express-validator");
   
-  router.post("/Usuario", agregarUsuario);
+  router.post("/Usuario", body('name').isLength({ min: 5 }).withMessage("Nombre debe tener mas de tres caracteres"), agregarUsuario);
   router.get("/Usuario", obtenerUsuarios);
   router.put("/Usuario/:_id", modificarUsuario);
   router.delete("/Usuario/:_id", eliminarUsuario)

@@ -5,7 +5,7 @@ const UsuarioSchema = new Schema({
   name: { type: String, required: [true, "Usuario necesita un nombre"] },
   age: { type: Number},
   sex: { type: String, enum: ["Hombre", "Mujer", "Prefiere no contestar"] ,require: true},
-  ocupation: { type: String },
+  ocupation: { type: String }
 });
 
 const UsuarioModel = model("Usuarios", UsuarioSchema);
