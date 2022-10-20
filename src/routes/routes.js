@@ -9,6 +9,14 @@ const {
   const {body}= require("express-validator");
   
   router.post("/Usuario", body('name').isLength({ min: 5 }).withMessage("Nombre debe tener mas de tres caracteres"), agregarUsuario);
+  
+  var requestTime = function (req, res, next) {
+    req.requestTime = Date.now();
+    next();
+  };
+  
+  router.use(requestTime);
+   
   router.get("/Usuario", obtenerUsuarios);
   router.put("/Usuario/:_id", modificarUsuario);
   router.delete("/Usuario/:_id", eliminarUsuario)

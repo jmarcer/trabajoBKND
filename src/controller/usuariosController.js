@@ -20,9 +20,11 @@ const errors = validationResult(req);
 }
 
 const obtenerUsuarios = async (req, res, next) => {
+
     try {
         const Usuarios = await obtenerUsuariosService();
-    res.json({Usuarios})
+        console.log( 'Solicitud de usuarios a las ' + new Date(req.requestTime) + '');
+        res.json({Usuarios})
     } catch (error) {
         next(error)
     }
