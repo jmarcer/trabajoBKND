@@ -5,7 +5,6 @@ const {
     eliminarUsuario,
   } = require("../controller/usuariosController");
   const express = require("express");
-  const UsuarioModel = require("../models/usuarios.model");
   const router = express.Router();
   const {body}= require("express-validator");
   
