@@ -23,7 +23,6 @@ const obtenerUsuarios = async (req, res, next) => {
 
     try {
         const Usuarios = await obtenerUsuariosService();
-        console.log( 'Solicitud de usuarios a las ' + new Date(req.requestTime) + '');
         res.json({Usuarios})
     } catch (error) {
         next(error)
